@@ -27,4 +27,32 @@ final class CoreDataManager {
             }
         }
     }
+    
+    func savePhoto(_ photo: UnsplashPhoto) {
+            let newFavorite = FavoritePhotoEntity(context: context)
+            newFavorite.id = photo.id
+            newFavorite.urlString = photo.urls.regular
+            newFavorite.photoDescription = photo.description ?? photo.altDescription
+            newFavorite.authorName = photo.user.name
+            newFavorite.savedDate = Date()
+            
+            saveContext()
+            print("Фото \(photo.id) сохранено в избранное!")
+        }
+    
+    func deletePhoto(withId id: String) {
+            let request = FavoritePhotoEntity.fetchRequest()
+            request.predicate = NSPredicate(format: "id == %@", id)
+            
+            do {
+                let results = try context.fetch(request)
+                for object in results {
+                    context.delete(object)
+                }
+                saveContext()
+                print("Фото \(id) удалено из избранного.")
+            } catch {
+                print("Ошибка при удалении: \(error.localizedDescription)")
+            }
+        }
 }

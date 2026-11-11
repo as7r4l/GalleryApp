@@ -1,8 +1,11 @@
 import SwiftUI
+import CoreData
 
 struct PhotoDetailView: View {
     @ObservedObject var viewModel: GalleryViewModel
     @State var selectedPhotoId: String
+    
+    @FetchRequest(entity: FavoritePhotoEntity.entity(), sortDescriptors: []) var favorites: FetchedResults<FavoritePhotoEntity>
     
     
     var body: some View {
@@ -49,11 +52,19 @@ struct PhotoDetailView: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
+                let isFavorite = favorites.contains(where: { $0.id == selectedPhotoId })
+                
                 Button(action: {
-                    // TODO: Сохранение в бд
+                    if isFavorite {
+                        CoreDataManager.shared.deletePhoto(withId: selectedPhotoId)
+                    } else {
+                        if let currentPhoto = viewModel.photos.first(where: { $0.id == selectedPhotoId }) {
+                            CoreDataManager.shared.savePhoto(currentPhoto)
+                        }
+                    }
                 }) {
-                    Image(systemName: "heart")
-                        .foregroundColor(.red)
+                    Image(systemName: isFavorite ? "heart.fill" : "heart")
+                        .foregroundColor(isFavorite ? .red : .primary)
                 }
             }
         }
