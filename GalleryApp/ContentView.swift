@@ -16,14 +16,17 @@ struct ContentView: View {
                 // Ленивая сетка (создает ячейки только когда они появляются на экране)
                 LazyVGrid(columns: columns, spacing: 16) {
                     ForEach(viewModel.photos, id: \.id) { photo in
-                        PhotoItemView(photo: photo)
-                        .onAppear {
-                            // Пагинация: если долистали до последней картинки — грузим следующую страницу
-                            if photo.id == viewModel.photos.last?.id {
-                                Task {
-                                    await viewModel.loadNextPage()
+                        NavigationLink(destination: PhotoDetailView(viewModel: viewModel, selectedPhotoId: photo.id)) {
+                            
+                            PhotoItemView(photo: photo)
+                                .onAppear {
+                                    // Пагинация: если долистали до последней картинки — грузим следующую страницу
+                                    if photo.id == viewModel.photos.last?.id {
+                                        Task {
+                                            await viewModel.loadNextPage()
+                                        }
+                                    }
                                 }
-                            }
                         }
                     }
                 }

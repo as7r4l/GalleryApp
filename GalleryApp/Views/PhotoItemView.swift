@@ -18,5 +18,12 @@ struct PhotoItemView: View {
                 .frame(height: 200)
                 .cornerRadius(12)
         }
+        .contextMenu {
+            Button(action: {
+                print("Нажата кнопка добавить в избранное для фото: \(photo.id)")
+            }) {
+                Label("В избранное", systemImage: "heart")
+            }
+        }
     }
 }
