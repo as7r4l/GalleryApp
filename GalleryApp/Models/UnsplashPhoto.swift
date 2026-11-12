@@ -16,7 +16,7 @@ struct UnsplashPhoto: Codable, Identifiable, Equatable {
     let altDescription: String?
     let urls: PhotoURLs
     let user: UnsplashUser
-
+    
     enum CodingKeys: String, CodingKey {
         case id
         case width
