@@ -14,7 +14,7 @@ struct ContentView: View {
     ]
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ScrollView {
                 // Ленивая сетка (создает ячейки только когда они появляются на экране)
                 LazyVGrid(columns: columns, spacing: 16) {
@@ -45,6 +45,7 @@ struct ContentView: View {
                 }
             }
             .navigationTitle("Unsplash Gallery")
+            .navigationBarTitleDisplayMode(.large)
             // Выполняется один раз при запуске экрана
             .task {
                 if viewModel.photos.isEmpty {

@@ -14,7 +14,7 @@ struct GalleryAppApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainTabView()
                 .environment(\.managedObjectContext, coreDataManager.context)
         }
     }
