@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		2DD7746A30A630BA00B034EE /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2DD7746930A630BA00B034EE /* README.md */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		2DD7736830A360B900B034EE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,6 +31,7 @@
 		2DD7735A30A360B700B034EE /* GalleryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GalleryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DD7736730A360B900B034EE /* GalleryAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GalleryAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DD7737130A360B900B034EE /* GalleryAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GalleryAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2DD7746930A630BA00B034EE /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -43,6 +48,11 @@
 		2DD7737430A360B900B034EE /* GalleryAppUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = GalleryAppUITests;
+			sourceTree = "<group>";
+		};
+		2DD7746B30A6311A00B034EE /* Screenshots */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Screenshots;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -75,6 +85,8 @@
 		2DD7735130A360B700B034EE = {
 			isa = PBXGroup;
 			children = (
+				2DD7746B30A6311A00B034EE /* Screenshots */,
+				2DD7746930A630BA00B034EE /* README.md */,
 				2DD7735C30A360B700B034EE /* GalleryApp */,
 				2DD7736A30A360B900B034EE /* GalleryAppTests */,
 				2DD7737430A360B900B034EE /* GalleryAppUITests */,
@@ -109,6 +121,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				2DD7735C30A360B700B034EE /* GalleryApp */,
+				2DD7746B30A6311A00B034EE /* Screenshots */,
 			);
 			name = GalleryApp;
 			packageProductDependencies = (
@@ -215,6 +228,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DD7746A30A630BA00B034EE /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
