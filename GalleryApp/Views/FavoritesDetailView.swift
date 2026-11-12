@@ -40,7 +40,7 @@ struct FavoriteDetailView: View {
             }
             .tabViewStyle(.page(indexDisplayMode: .never))
             
-
+            
             ScrollView(.horizontal, showsIndicators: false) {
                 ScrollViewReader { proxy in
                     LazyHStack(spacing: 8) {
